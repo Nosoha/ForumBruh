@@ -67,4 +67,9 @@ class Utilisateur extends AbstractEntity{
         }
         $this->role = $role;
     }
+
+    public function __toString()
+    {
+        return $this->username;
+    }
 }

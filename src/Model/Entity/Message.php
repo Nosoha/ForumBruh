@@ -33,7 +33,7 @@ class Message extends AbstractEntity{
     }
 
     public function getCreatedAt(){
-        return parent::formatDate($this->createdAt);
+        return $this->createdAt;
     }
 
     public function setCreatedAt($createdAt){

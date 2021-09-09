@@ -6,7 +6,7 @@ use App\Service\AbstractEntity;
 class Sujet extends AbstractEntity{
 
     private $id;
-    private $titre;
+    private $title;
     private $createdAt;
     private $categorie;
     private $utilisateur;
@@ -23,16 +23,17 @@ class Sujet extends AbstractEntity{
         $this->id = $id;
     }
 
-    public function getTitre(){
-        return $this->titre;
+    public function getTitle(){
+        return $this->title;
     }
 
-    public function setTitre($titre){
-        $this->titre = $titre;
+    public function setTitle($title){
+        $this->title = $title;
     }
 
     public function getCreatedAt(){
-        return parent::formatDate($this->createdAt);
+        // return parent::formatDate($this->createdAt);
+        return $this->createdAt;
     }
 
     public function setCreatedAt($createdAt){

@@ -6,7 +6,7 @@ use App\Service\AbstractEntity;
 class Categorie extends AbstractEntity{
 
     private $id;
-    private $titre;
+    private $title;
 
     public function __construct($data){
         parent::hydrate($data, $this);
