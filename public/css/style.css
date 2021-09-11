@@ -1,2 +1,24 @@
 
 
+    nav img{
+        max-height: 150px;
+        max-width: 200px;
+        width: 100px;
+        height: 100px;
+        
+    }
+    
+    nav a{
+        font-weight: 200%;
+        text-decoration: orange;
+    }
+
+    table > tbody > tr > td {
+    border: 1px solid black;
+    }
+
+    #messages{
+        text-align: center;
+    }
+
+

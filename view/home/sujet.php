@@ -29,3 +29,14 @@
         </tbody>
     </table>
 </div>
+
+<h3>ajouter un sujet</h3>
+<form action="?ctrl=home&action=newSujet&id=<?= $categorie->getId() ?>" method="post">
+    <p>
+        <input type="text" name="title" id="" placeholder="sujet..." required>
+    </p>
+
+    <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
+    <p><input type="submit" value="nouveau sujet"></p>
+</form>
+</div>

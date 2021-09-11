@@ -23,7 +23,7 @@ class HomeController extends AbstractController
     public function listCategories(){
         $categories = $this->categorieManager->findAll();
 
-        return $this->render("home/home.php",
+        return $this->render("home/categorie.php",
             ["categories" => $categories]
         );
     }
@@ -46,5 +46,41 @@ class HomeController extends AbstractController
             ["sujet" => $sujet,  
             "messages" => $messages]
         );
+    }
+
+    public function reponseMessage($id){
+        
+        $sujet = $this->sujetManager->findOneById($id);
+        
+        if(!empty($_POST)){
+            
+            $text = filter_input(INPUT_POST, "text", FILTER_SANITIZE_STRING);
+            $id = $sujet->getId();
+            
+            if($text){
+                // echo "ok"; die;
+                if($this->messageManager->insertMessage($sujet->getId(), $text)){
+                    $this->redirectTo("?ctrl=home&action=detailsMessage&id=$id");
+                }
+            }
+        }
+    }
+
+    public function newSujet($id){
+        
+        $categorie = $this->categorieManager->findOneById($id);
+        
+        if(!empty($_POST)){
+            
+            $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_STRING);
+            $id = $categorie->getId();
+            
+            if($title){
+                
+                if($this->sujetManager->insertSujet($categorie->getId(), $title)){
+                    $this->redirectTo("?ctrl=home&action=detailsCategorie&id=$id");
+                }
+            }
+        }
     }
 }

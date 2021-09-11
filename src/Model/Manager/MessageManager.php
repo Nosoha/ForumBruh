@@ -2,6 +2,7 @@
 namespace App\Model\Manager;
 
 use App\Service\AbstractManager;
+use App\Service\Session;
 
 class MessageManager extends AbstractManager{
   
@@ -33,4 +34,17 @@ class MessageManager extends AbstractManager{
             ["id" => $id]
         );
     }
+
+    public function insertMessage($sujet_id,$text)
+        {
+            return $this->executeQuery(
+                "INSERT INTO message (text, utilisateur_id, sujet_id)
+                VALUES (:text,:utilisateur_id,:sujet_id)",
+                [
+                    ":text"    => $text,
+                    ":utilisateur_id"    => Session::getUser()->getId(),
+                    ":sujet_id"    => $sujet_id, 
+                ]
+            );
+        }
 }
