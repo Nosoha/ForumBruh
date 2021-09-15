@@ -7,6 +7,7 @@ class Categorie extends AbstractEntity{
 
     private $id;
     private $title;
+    private $logo;
 
     public function __construct($data){
         parent::hydrate($data, $this);
@@ -26,5 +27,13 @@ class Categorie extends AbstractEntity{
 
     public function setTitle($title){
         $this->title = $title;
+    }
+
+    public function getLogo(){
+        return $this-> logo;
+    }
+
+    public function setLogo($logo){
+        $this->logo = $logo;
     }
 }

@@ -8,7 +8,7 @@ class CategorieManager extends AbstractManager{
     public function findAll(){
         return $this->getResults(
             "App\Model\Entity\Categorie",
-            "SELECT id, title
+            "SELECT id, title , logo
             FROM categorie"
         );
     }
@@ -16,7 +16,7 @@ class CategorieManager extends AbstractManager{
     public function findOneById($id){
         return $this->getOneOrNullResult(
             "App\Model\Entity\Categorie",
-            "SELECT id, title
+            "SELECT id, title , logo 
             FROM categorie
             WHERE id = :id",
             ["id" => $id]

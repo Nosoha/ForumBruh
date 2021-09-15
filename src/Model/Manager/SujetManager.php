@@ -2,6 +2,7 @@
 namespace App\Model\Manager;
 
 use App\Service\AbstractManager;
+use App\Service\Session;
 
 class SujetManager extends AbstractManager{
 
@@ -35,4 +36,17 @@ class SujetManager extends AbstractManager{
         );
     }
 
+
+    public function insertSujet($categorie_id,$title)
+        {
+            return $this->executeQuery(
+                "INSERT INTO sujet (title, utilisateur_id, categorie_id)
+                VALUES (:title,:utilisateur_id,:categorie_id)",
+                [
+                    ":title"    => $title,
+                    ":utilisateur_id"    => Session::getUser()->getId(),
+                    ":categorie_id"    => $categorie_id, 
+                ]
+            );
+        }
 }

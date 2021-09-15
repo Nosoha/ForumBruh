@@ -11,6 +11,7 @@ class Utilisateur extends AbstractEntity{
     private $password;
     private $createdAt;
     private $role;
+    private $avatar;
 
     
     public function __construct($data){
@@ -41,16 +42,8 @@ class Utilisateur extends AbstractEntity{
         $this->email = $email;
     }
 
-    public function getPassword(){
-        return $this->password;
-    }
-
-    public function setPassword($password){
-        $this->password = $password;
-    }
-
     public function getCreatedAt(){
-        return parent::formatDate($this->createdAt);
+        return $this->createdAt;
     }
 
     public function setCreatedAt($createdAt){
@@ -68,8 +61,30 @@ class Utilisateur extends AbstractEntity{
         $this->role = $role;
     }
 
+    
+
     public function __toString()
     {
         return $this->username;
+    }
+
+    
+
+    /**
+     * Get the value of avatar
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * Set the value of avatar
+     */
+    public function setAvatar($avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
     }
 }
